@@ -18,30 +18,14 @@
 
 <ul>
   <li>
-    3, 4, 4
+ <%= @first_guess %>, <%= @second_guess %>, <%= @third_guess %> <%= @valid %>
 
-      No.
-  </li>
-  <li>
-    3, 4, 5
-
-      Yes!
-  </li>
-  <li>
-    4, 4, 2
-
-      No.
-  </li>
-  <li>
-    3, 3, 3
-
-      No.
-  </li>
-  <li>
-    2, 3, 5
-
-      Yes!
-  </li>
+ <% if @first_guess < @second_guess && @second_guess < @third_guess %>
+   Yes!
+ <% else %>
+   No.
+ <% end %>
+ </li>
 </ul>
 
 <form action="">
@@ -58,6 +42,7 @@
   <label for="third">Third number:</label>
   <input id="third" type="text" name="third_number" placeholder="The third number">
 
+
   <button>
     Check
   </button>
@@ -65,7 +50,7 @@
 
 <hr>
 
-<form action="">
+<form action="/show_answer">   <!-- this is the url -->
   <p>
     When you think you know the rule, describe it in words below and then submit your answer. <strong>Make sure you’re right; you won’t get a second chance.</strong>
   </p>
